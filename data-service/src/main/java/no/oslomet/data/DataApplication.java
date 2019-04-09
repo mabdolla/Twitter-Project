@@ -1,13 +1,11 @@
-package no.oslomet.tweetservice;
+package no.oslomet.data;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TweetServiceApplication {
-
+public class DataApplication {
     public static void main(String[] args) {
-        SpringApplication.run(TweetServiceApplication.class, args);
+        SpringApplication.run(DataApplication.class, args);
     }
-
 }
