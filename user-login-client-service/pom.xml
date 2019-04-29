@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>no.oslomet</groupId>
-    <artifactId>tweet-service</artifactId>
+    <artifactId>user-service</artifactId>
     <version>1</version>
 
     <dependencies>
@@ -19,7 +19,6 @@
             <groupId>no.oslomet</groupId>
             <artifactId>common</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

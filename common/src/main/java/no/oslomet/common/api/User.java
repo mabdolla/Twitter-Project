@@ -8,6 +8,6 @@ public interface User {
 
     String getEmail();
 
-    String getTweeterId();
+    String getTwitterId();
 
 }

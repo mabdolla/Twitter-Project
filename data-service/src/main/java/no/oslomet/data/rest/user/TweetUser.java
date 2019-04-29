@@ -2,18 +2,20 @@ package no.oslomet.data.rest.user;
 
 import no.oslomet.common.api.User;
 
-public class TweetUser implements User {
+import java.io.Serializable;
+
+public class TweetUser implements User, Serializable {
 
     private String firstName;
     private String lastName;
     private String email;
-    private String tweeterId;
+    private String twitterId;
 
-    public TweetUser(String firstName, String lastName, String email, String tweeterId) {
+    public TweetUser(String firstName, String lastName, String email, String twitterId) {
         this.firstName = firstName;
         this.lastName = lastName;
-        email = email;
-        this.tweeterId = tweeterId;
+        this.email = email;
+        this.twitterId = twitterId;
     }
 
     public String getFirstName() {
@@ -28,7 +30,7 @@ public class TweetUser implements User {
         return email;
     }
 
-    public String getTweeterId() {
-        return tweeterId;
+    public String getTwitterId() {
+        return twitterId;
     }
 }

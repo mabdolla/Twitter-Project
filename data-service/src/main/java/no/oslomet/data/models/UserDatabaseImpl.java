@@ -38,7 +38,7 @@ public class UserDatabaseImpl implements User {
         return null;
     }
 
-    public String getTweeterId() {
+    public String getTwitterId() {
         return null;
     }
 }

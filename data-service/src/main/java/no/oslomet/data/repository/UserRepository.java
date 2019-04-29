@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserRepository {
 
-    public TweetUser getUser(final String tweeterId) {
+    public TweetUser getUser(final String twitterId) {
         //UserDatabaseImpl user  = databaseConnection.query("Select ");
-        return new TweetUser("Me", "You", "me@somewhere.no", tweeterId);
+        return new TweetUser("Me", "You", "me@somewhere.no", twitterId);
     }
 }
