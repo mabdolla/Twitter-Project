@@ -13,6 +13,7 @@ import java.nio.charset.Charset;
 public class UserService {
     private String baseUrl = "http://localhost:9090";
     private RestTemplate restTemplate = new RestTemplate();
+
     public User login(User user){
         String loginUrl = baseUrl + "/login";
         HttpEntity<User> request = new HttpEntity<>(user, createHeaders(user.getEmail(), user.getPassword()));

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Twitter</title>
+</head>
+    <body>
+    <div class="container">
+        <h3 class="text-primary"> Twitter-clone </h3>
+
+        <div class="col-sm-6  my-5">
+            <h5 class="text-primary">New Tweet </h5>
+            <form th:action="@{/saveTweet}" modelAttribute="tweet" method="post">
+                <input type="hidden"  th:value="${tweet.id}" name="id">
+                <div class="form-group">
+                    <input type="text"  th:value="${tweet.text}" name="text" class="form-control" placeholder="Text">
+                </div>
+
+                <button class="btn btn-success">Save</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div th:if="${!tweets.empty}">
+        <table class="table col-sm-6">
+            <tr>
+                <th>text</th>
+            </tr>
+            <tbody>
+
+            <tr th:each="tweet : ${tweets}">
+                <td th:text="${tweet.text}"></td>
+
+                <td>
+                    <a class="btn btn-warning" th:href="@{/edit/}+${tweet.id}">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" th:href="@{/delete/}+${tweet.id}">Delete</a>
+                </td>
+            </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+</body>
+</html>

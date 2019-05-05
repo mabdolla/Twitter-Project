@@ -5,13 +5,24 @@
     <groupId>no.oslomet</groupId>
     <artifactId>tweet-clone</artifactId>
     <version>1</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+    </dependencies>
     <packaging>pom</packaging>
     <name>tweet-service</name>
     <description>tweet service for the twitter project</description>
 
     <modules>
-        <module>user-service</module>
-        <module>tweet-service</module>
+        <module>user-login-client-service</module>
+        <module>login-microservice</module>
         <module>data-service</module>
         <module>common</module>
     </modules>
@@ -36,6 +47,12 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <optional>true</optional>
             </dependency>
 
             <dependency>
@@ -104,6 +121,16 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
 
     </build>
 
