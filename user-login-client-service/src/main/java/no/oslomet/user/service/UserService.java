@@ -40,7 +40,6 @@ public class UserService {
         return newUser;
     }
 
-
     public HttpHeaders createHeaders(final String email, final String password){
         return new HttpHeaders() {{
             String auth = email + ":" + password;
