@@ -2,7 +2,7 @@ package no.oslomet.loginmicroservice.service;
 
 
 import no.oslomet.loginmicroservice.model.LoginUser;
-import no.oslomet.loginmicroservice.model.TweetUser;
+import no.oslomet.loginmicroservice.model.TwitterUser;
 import no.oslomet.loginmicroservice.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,12 +58,12 @@ public class LoginService implements UserDetailsService {
     public long save(LoginUser user) {
 
         LoginUser savedUser = userRepository.save(user);
-        TweetUser tweetUser = new TweetUser(user.getFirstName(), user.getLastName(), user.getEmail());
+        TwitterUser twitterUser = new TwitterUser(user.getFirstName(), user.getLastName(), user.getEmail());
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<TweetUser> userHttpEntity = new HttpEntity<>(tweetUser, headers);
+        HttpEntity<TwitterUser> userHttpEntity = new HttpEntity<>(twitterUser, headers);
         ResponseEntity<String> responseEntity = template.postForEntity(tweetServiceUrl.concat("/users"), userHttpEntity, String.class);
 
         if (responseEntity.getStatusCode().isError()) {

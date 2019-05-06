@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div th:if="${!tweets.empty}" class="col-sm-10 mx-auto">
+        <table class="table">
+            <tr>
+                <th>Text</th>
+                <th>Likes</th>
+                <th>Dislikes</th>
+                <th>Re-tweets</th>
+            </tr>
+            <tbody>
+
+            <tr th:each="tweet : ${tweets}">
+                <td th:text="${tweet.text}"></td>
+                <td th:text="${tweet.likes}"></td>
+                <td th:text="${tweet.dislikes}"></td>
+                <td th:text="${tweet.retweets}"></td>
+
+                <td>
+                    <a class="btn btn-warning" th:href="@{/edit/}+${tweet.id}">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" th:href="@{/delete/}+${tweet.id}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

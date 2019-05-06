@@ -1,11 +1,15 @@
 package no.oslomet.data.controller;
 
 import no.oslomet.data.models.Tweet;
+import no.oslomet.data.models.TwitterUser;
 import no.oslomet.data.service.TweetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,12 +21,19 @@ public class TweetController {
 
     @Autowired
     public TweetController(TweetService tweetService) {
+
+        Tweet tweet = new Tweet("hello", 1, 2, 3);
+        List<Tweet> tweets = new ArrayList<>();
+        tweets.add(tweet);
+        TwitterUser twitterUser = new TwitterUser("nmm", "ee", "ff", tweets);
+
         this.tweetService = tweetService;
     }
 
-    @GetMapping
-    public List<Tweet> getAllTweets() {
-        return tweetService.getAllTweets();
+    @GetMapping("/")
+    public String getAllTweets(Model model) {
+        model.addAttribute("tweets",tweetService.getAllTweets());
+        return "list";
     }
 
     @GetMapping(path = "/user/{userId}")

@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class TweetUser implements User {
+public class TwitterUser implements User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,20 +20,20 @@ public class TweetUser implements User {
     @JsonIgnore
     private List<Tweet> tweets;
 
-    public TweetUser(String email, String firstName, String lastName, List<Tweet> tweets) {
+    public TwitterUser(String email, String firstName, String lastName, List<Tweet> tweets) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.tweets = tweets;
     }
 
-    public TweetUser(String email, String firstName, String lastName) {
+    public TwitterUser(String email, String firstName, String lastName) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public TweetUser() {
+    public TwitterUser() {
 
     }
 
@@ -79,7 +79,7 @@ public class TweetUser implements User {
 
     @Override
     public String toString() {
-        return "TweetUser{" +
+        return "TwitterUser{" +
                 "email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

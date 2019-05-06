@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div th:if="${!twitterUsers.empty}" class="col-sm-10 mx-auto">
+        <table class="table">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            <tbody>
+
+            <tr th:each="twitterUser : ${twitterUsers}">
+                <td th:text="${twitterUser.firstName}"></td>
+                <td th:text="${twitterUser.lastName}"></td>
+                <td th:text="${twitterUser.email}"></td>
+\
+                <td>
+                    <a class="btn btn-warning" th:href="@{/edit/}+${twitterUser.id}">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" th:href="@{/delete/}+${twitterUser.id}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

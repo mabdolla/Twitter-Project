@@ -24,6 +24,7 @@
         <module>user-login-client-service</module>
         <module>login-microservice</module>
         <module>data-service</module>
+        <module>client-data-service</module>
         <module>common</module>
     </modules>
 

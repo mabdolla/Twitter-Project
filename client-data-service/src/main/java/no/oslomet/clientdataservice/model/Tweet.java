@@ -1,21 +1,22 @@
-package no.oslomet.data.models;
+package no.oslomet.clientdataservice.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
-@Entity
 public class Tweet {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty
     private long id;
-
+    @JsonProperty
     private String text;
+    @JsonProperty
     private int likes;
+    @JsonProperty
     private int dislikes;
+    @JsonProperty
     private int retweets;
-
-    @ManyToOne
-    @JoinColumn(name = "tweetuser_twitterid")
+    @JsonProperty
     private TwitterUser twitterUser;
 
     public Tweet(String text, int likes, int dislikes, int retweets, TwitterUser twitterUser) {

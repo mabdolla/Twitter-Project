@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import no.oslomet.common.api.User;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TweetUser implements User {
+public class TwitterUser implements User {
 
     @JsonProperty
     private String firstName;
@@ -14,10 +14,10 @@ public class TweetUser implements User {
     @JsonProperty
     private String email;
 
-    public TweetUser() {
+    public TwitterUser() {
     }
 
-    public TweetUser(String firstName, String lastName, String email) {
+    public TwitterUser(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

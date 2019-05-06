@@ -22,34 +22,5 @@
         </div>
     </div>
 
-
-
-    <div th:if="${!tweets.empty}">
-        <table class="table col-sm-6">
-            <tr>
-                <th>text</th>
-            </tr>
-            <tbody>
-
-            <tr th:each="tweet : ${tweets}">
-                <td th:text="${tweet.text}"></td>
-
-                <td>
-                    <a class="btn btn-warning" th:href="@{/edit/}+${tweet.id}">Edit</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" th:href="@{/delete/}+${tweet.id}">Delete</a>
-                </td>
-            </tr>
-
-
-
-            </tbody>
-        </table>
-    </div>
-
-
-
-
 </body>
 </html>
